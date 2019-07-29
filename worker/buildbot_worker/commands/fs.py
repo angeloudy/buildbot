@@ -235,7 +235,7 @@ class GlobPath(base.Command):
         pathname = os.path.join(self.builder.basedir, self.args['path'])
 
         try:
-            files = glob.glob(pathname)
+            files = glob.glob(pathname, recursive=True)
             self.sendStatus({'files': files})
             self.sendStatus({'rc': 0})
         except OSError as e:
