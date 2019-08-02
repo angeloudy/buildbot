@@ -384,15 +384,11 @@ class LogsConnectorComponent(base.DBConnectorComponent):
                 )
                 res.close()
 
-            # query all logs with type 'd' and delete their chunks.
-            q = sa.select([model.logs.c.id])
-            q = q.select_from(model.logs)
-            q = q.where(model.logs.c.type == 'd')
-
             # delete their logchunks
             res = conn.execute(
                 model.logchunks.delete()
-                .where(model.logchunks.c.logid.in_(q))
+                .where(model.logs.c.id == model.logchunks.c.logid)
+                .where(model.logs.c.type == 'd')
             )
             res.close()
             res = conn.execute(sa.select([sa.func.count(model.logchunks.c.logid)]))
