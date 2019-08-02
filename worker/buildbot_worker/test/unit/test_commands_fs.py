@@ -301,6 +301,8 @@ class TestGlobPath(CommandTestMixin, unittest.TestCase):
         os.makedirs(os.path.join(self.basedir, 'test/testdir'))
         with open(os.path.join(self.basedir, 'test/testdir/test.txt'), 'w'):
             pass
+
+        yield self.run_command()
         if sys.version_info[:] >= (3, 5):
             self.assertEqual(
                 self.get_updates()[0]['files'], [os.path.join(self.basedir, 'test/testdir/test.txt')])
