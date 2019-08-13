@@ -50,6 +50,8 @@ require('./builders/step/step.controller.js');
 require('./builders/step/step.route.js');
 require('./buildrequests/pendingbuildrequests.controller.js');
 require('./buildrequests/pendingbuildrequests.route.js');
+require('./changes/changebuilds/changebuilds.controller.js');
+require('./changes/changebuilds/changebuilds.route.js');
 require('./changes/changes.controller.js');
 require('./changes/changes.route.js');
 require('./common/common.constant.js');
@@ -90,4 +92,8 @@ require('./workers/worker/worker.route.js');
 require('./workers/workeraction.dialog.js');
 require('./workers/workers.controller.js');
 require('./workers/workers.route.js');
-
+require('../img/favicon.ico');
+require('../img/icon.png');
+require('../img/icon.svg');
+require('../img/icon16.svg');
+require('../img/nobody.png');
